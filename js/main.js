@@ -85,9 +85,13 @@ const sendToWhatsApp = (event) => {
     const subject = document.getElementById('subject').value;
     const phone = '2348134189425';
     if (name == '' || message == '' || email == '' || subject == '') {
-        alert('Please fill in the inputs')
+        // alert('Please fill in the inputs')
+        errorMsg.style.cssText = "display: block; transition: 2s; color: #f00;"
+        setTimeout(() => {
+        errorMsg.style.cssText = "display: none; transition: 2s;"
+        }, 2000);
     } else {
-        const text = encodeURIComponent(`Name: ${name}\nSubject: ${subject}\Email: ${email}\nMessage: ${message}`);
+        const text = encodeURIComponent(`Name: ${name}\nSubject: ${subject}\nEmail: ${email}\nMessage: ${message}`);
         window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     }
 }
