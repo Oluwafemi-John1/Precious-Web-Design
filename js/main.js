@@ -77,11 +77,13 @@
     });
 })(jQuery);
 
-function sendToWhatsApp(event) {
+const sendToWhatsApp = (event) => {
     event.preventDefault();
     const name = document.getElementById('name').value;
     const message = document.getElementById('message').value;
-    const phone = '2348012345678'; // Replace with your WhatsApp number
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const phone = '2348134189425'; // Replace with your WhatsApp number
     const text = encodeURIComponent(`Name: ${name}\nMessage: ${message}`);
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
