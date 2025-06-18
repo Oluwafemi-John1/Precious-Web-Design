@@ -83,7 +83,7 @@ const sendToWhatsApp = (event) => {
     const message = document.getElementById('message').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
-    const phone = '2348134189425';
+    const phone = '2349162792951';
     if (name == '' || message == '' || email == '' || subject == '') {
         // alert('Please fill in the inputs')
         errorMsg.style.cssText = "display: block; transition: 2s; color: #f00;"
