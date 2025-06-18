@@ -453,7 +453,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form">
-                                    <form onsubmit="sendToWhatsApp(e)">
+                                    <form>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <input type="text" class="form-control" placeholder="Your Name" id="name" />
@@ -468,7 +468,10 @@
                                         <div class="form-group">
                                             <textarea class="form-control" rows="5" placeholder="Message" id="message"></textarea>
                                         </div>
-                                        <div><button class="btn" type="submit">Send Message</button></div>
+                                        <div>
+                                            <button class="btn" type="button" onclick="sendToWhatsApp()">Send Message</button>
+                                            <span class="alert alert-danger">Please fill in the inputs</span>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
