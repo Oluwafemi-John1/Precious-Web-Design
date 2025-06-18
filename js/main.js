@@ -1,22 +1,22 @@
 (function ($) {
     "use strict";
-    
+
     // Smooth scrolling on the navbar links
     $(".navbar-nav a").on('click', function (event) {
         if (this.hash !== "") {
             event.preventDefault();
-            
+
             $('html, body').animate({
                 scrollTop: $(this.hash).offset().top - 30
             }, 1500, 'easeInOutExpo');
-            
+
             if ($(this).parents('.navbar-nav').length) {
                 $('.navbar-nav .active').removeClass('active');
                 $(this).closest('a').addClass('active');
             }
         }
     });
-    
+
 
     // Typed Initiate
     if ($('.header h2').length == 1) {
@@ -29,16 +29,16 @@
             loop: true
         });
     }
-    
-    
+
+
     // Skills
     $('.skills').waypoint(function () {
         $('.progress .progress-bar').each(function () {
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
         });
-    }, {offset: '80%'});
-    
-    
+    }, { offset: '80%' });
+
+
     // Porfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
@@ -49,10 +49,10 @@
         $("#portfolio-flters li").removeClass('filter-active');
         $(this).addClass('filter-active');
 
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
+        portfolioIsotope.isotope({ filter: $(this).data('filter') });
     });
-    
-    
+
+
     // Review slider
     $('.review-slider').slick({
         autoplay: true,
@@ -61,8 +61,8 @@
         slidesToShow: 1,
         slidesToScroll: 1
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -72,8 +72,16 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 })(jQuery);
 
+function sendToWhatsApp(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+    const phone = '2348012345678'; // Replace with your WhatsApp number
+    const text = encodeURIComponent(`Name: ${name}\nMessage: ${message}`);
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+}
